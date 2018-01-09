@@ -17,3 +17,6 @@ npm run build
 npm run build --report
 ```
 
+## api https://github.com/d3/d3/blob/master/API.md
+
+## v3 vs v4  https://github.com/xswei/d3js_doc/tree/master/ReleaseNotes

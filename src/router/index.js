@@ -4,6 +4,7 @@ import VueResource from 'vue-resource'
 import iView from 'iview'
 import 'iView/dist/styles/iview.css'
 import HelloWorld from '@/components/basicExercise/HelloWorld'
+import clusterDiagram from '@/components/projectPractice/clusterDiagram/clusterDiagram'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/clusterDiagram',
+      name: 'clusterDiagram',
+      component: clusterDiagram
     }
   ]
 })

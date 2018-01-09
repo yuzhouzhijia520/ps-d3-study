@@ -1,5 +1,28 @@
 <template>
   <div  class="hello">
+    <Row>
+        <Col span="8">
+            <Menu >
+                <Submenu name="1">
+                    <template slot="title">
+                        <Icon type="ios-paper"></Icon>
+                        D3练习
+                    </template>
+                    <MenuItem name="1-1">test</MenuItem>
+                    <MenuItem name="1-2">test</MenuItem>
+                    <MenuItem name="1-3">test</MenuItem>
+                </Submenu>
+                <Submenu name="2">
+                    <template slot="title">
+                        <Icon type="ios-people"></Icon>
+                        D3项目练习
+                    </template>
+                    <MenuItem @click.native="turnUrl" name="2-1">集群图</MenuItem>
+                    <MenuItem name="2-2">test</MenuItem>
+                </Submenu>
+            </Menu>
+        </Col>
+    </Row>
     <div id="hello">
       <p>Hello World 1</p>
       <p>Hello World 2</p>
@@ -61,6 +84,10 @@ export default {
                 return d;
              });
     },
+    turnUrl() {
+            // name是 <Menu-item name="timestamp">时间戳</Menu-item> 的name
+            this.$router.push('clusterDiagram')
+    }
   },
   mounted(){
    let _this=this;
