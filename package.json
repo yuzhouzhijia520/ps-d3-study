@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "d3": "^4.12.2",
+    "d3.chart": "^0.3.0",
+    "d3.chart.sankey": "^0.4.0",
     "iview": "^2.7.4",
     "vue": "^2.5.2",
     "vue-resource": "^1.3.4",

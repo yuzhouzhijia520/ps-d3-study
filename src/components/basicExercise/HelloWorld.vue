@@ -2,7 +2,7 @@
   <div  class="hello">
     <Row>
         <Col span="8">
-            <Menu >
+            <Menu @on-select="handleSelect">
                 <Submenu name="1">
                     <template slot="title">
                         <Icon type="ios-paper"></Icon>
@@ -17,8 +17,16 @@
                         <Icon type="ios-people"></Icon>
                         D3项目练习
                     </template>
-                    <MenuItem @click.native="turnUrl" name="2-1">集群图</MenuItem>
-                    <MenuItem name="2-2">test</MenuItem>
+                    <MenuItem  name="clusterDiagram">集群图</MenuItem>
+                    <MenuItem  name="Sankey">桑基图</MenuItem>
+                </Submenu>
+                <Submenu name="3">
+                    <template slot="title">
+                        <Icon type="ios-people"></Icon>
+                        Canvas项目练习
+                    </template>
+                    <MenuItem  name="quadraticCurveTo">二阶贝塞尔曲线</MenuItem>
+                    <MenuItem  name="bezierCurveTo">三阶贝塞尔曲线</MenuItem>
                 </Submenu>
             </Menu>
         </Col>
@@ -50,6 +58,9 @@ export default {
     }
   },
   methods: {
+    handleSelect: function(name) {
+        this.$router.push(name);
+    },
     hello(){
       let p = d3.select("#hello")//二、基本用法：是选择所有指定元素的第一个
             .selectAll("p")      //是选择指定元素的全部-------select和selectAll这两个函数返回的结果称为选择集。
@@ -83,10 +94,6 @@ export default {
              .text(function(d, i){
                 return d;
              });
-    },
-    turnUrl() {
-            // name是 <Menu-item name="timestamp">时间戳</Menu-item> 的name
-            this.$router.push('clusterDiagram')
     }
   },
   mounted(){

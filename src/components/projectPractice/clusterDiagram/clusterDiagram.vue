@@ -1,5 +1,6 @@
 <template>
   <div  class="clusterDiagram">
+<div>{{num}}</div>
     <div id="clusterDiagram">
         <svg width="960" height="2000"></svg>
     </div>
@@ -12,6 +13,7 @@ export default {
   name: 'clusterDiagram',
   data () {
     return {
+      num:""
     }
   },
   methods: {
@@ -29,39 +31,40 @@ export default {
                 .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
             d3.csv("../../../../static/csv/city.csv", function(error, data) {
-            if (error) throw error;
+              if (error) throw error;
 
-            let root = stratify(data)
-                .sort(function(a, b) { return (a.height - b.height) || a.id.localeCompare(b.id); });
+              let root = stratify(data)
+                  .sort(function(a, b) { return (a.height - b.height) || a.id.localeCompare(b.id); });
 
-            let link = g.selectAll(".link")
-                .data(tree(root).links())
-                .enter().append("path")
-                .attr("class", "link")
-                .attr("d", d3.linkHorizontal()
-                    .x(function(d) { return d.y; })
-                    .y(function(d) { return d.x; }));
+              let link = g.selectAll(".link")
+                  .data(tree(root).links())
+                  .enter().append("path")
+                  .attr("class", "link")
+                  .attr("d", d3.linkHorizontal()
+                      .x(function(d) { return d.y; })
+                      .y(function(d) { return d.x; }));
 
-            let node = g.selectAll(".node")
-                .data(root.descendants())
-                .enter().append("g")
-                .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
-                .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+              let node = g.selectAll(".node")
+                  .data(root.descendants())
+                  .enter().append("g")
+                  .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+                  .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
 
-            node.append("circle")
-                .attr("r", 2.5);
+              node.append("circle")
+                  .attr("r", 2.5);
 
-            node.append("text")
-                .attr("dy", 3)
-                .attr("x", function(d) { return d.children ? -8 : 8; })
-                .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
-                .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+              node.append("text")
+                  .attr("dy", 3)
+                  .attr("x", function(d) { return d.children ? -8 : 8; })
+                  .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+                  .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
             });
     }
   },
   mounted(){
    let _this=this;
     _this.hello();//基础练习
+    _this.num=0.2+0.1;
      
   }
 }
