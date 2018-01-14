@@ -8,6 +8,7 @@ import clusterDiagram from '@/components/projectPractice/clusterDiagram/clusterD
 import sankey from '@/components/projectPractice/sankey/sankey'
 import bezierCurveTo from '@/components/projectPractice/bezierCurveTo/bezierCurveTo'
 import quadraticCurveTo from '@/components/projectPractice/quadraticCurveTo/quadraticCurveTo'
+import dQuadraticCurveTo from '@/components/projectPractice/dQuadraticCurveTo/dQuadraticCurveTo'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -34,6 +35,11 @@ export default new Router({
       path: '/quadraticCurveTo',
       name: 'quadraticCurveTo',
       component: quadraticCurveTo
+    },
+    {
+      path: '/dQuadraticCurveTo',
+      name: 'dQuadraticCurveTo',
+      component: dQuadraticCurveTo
     },
     {
       path: '/bezierCurveTo',

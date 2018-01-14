@@ -25,8 +25,9 @@
                         <Icon type="ios-people"></Icon>
                         Canvas项目练习
                     </template>
-                    <MenuItem  name="quadraticCurveTo">二阶贝塞尔曲线</MenuItem>
-                    <MenuItem  name="bezierCurveTo">三阶贝塞尔曲线</MenuItem>
+                    <MenuItem  name="quadraticCurveTo">二阶贝塞尔曲线(静态)</MenuItem>
+                     <MenuItem  name="dQuadraticCurveTo">二阶贝塞尔曲线(动态)</MenuItem>
+                    <MenuItem  name="bezierCurveTo">三阶贝塞尔曲线(静态)</MenuItem>
                 </Submenu>
             </Menu>
         </Col>
