@@ -11,10 +11,10 @@ npm install yarn
 yarn
 
 # serve with hot reload at localhost:8075
-npm run dev
+yarn run dev
 
 # build for production and view the bundle analyzer report
-npm run build --report
+yarn run build --report
 ```
 
 ## api https://github.com/d3/d3/blob/master/API.md
